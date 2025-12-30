@@ -1,67 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import { Header } from './components/Header/Header'
+import { Main } from './components/Main/Main'
+import { Footer } from './components/Footer/Footer'
+import { GlobalStyle } from './styles/global'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('about')
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'about':
-        return <About />
-      case 'projects':
-        return <Projects />
-      case 'contact':
-        return <Contact />
-      default:
-        return <About />
-    }
-  }
-
   return (
-    <div className="app">
-      <header className="header">
-        <nav className="nav">
-          <h1 className="logo">Robert Zhang</h1>
-          <ul className="nav-links">
-            <li>
-              <button 
-                className={activeSection === 'about' ? 'active' : ''}
-                onClick={() => setActiveSection('about')}
-              >
-                About
-              </button>
-            </li>
-            <li>
-              <button 
-                className={activeSection === 'projects' ? 'active' : ''}
-                onClick={() => setActiveSection('projects')}
-              >
-                Projects
-              </button>
-            </li>
-            <li>
-              <button 
-                className={activeSection === 'contact' ? 'active' : ''}
-                onClick={() => setActiveSection('contact')}
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <main className="main">
-        {renderSection()}
-      </main>
-    </div>
+    <>
+      <GlobalStyle />
+      <Header />
+      <Main />
+      <Footer />
+    </>
   )
 }
 
-// export default App
+export default App
+
 //               challenging projects.
 //             </p>
 //           </section>
@@ -101,6 +56,4 @@ function App() {
 //       </main>
 //     </div>
 //   )
-// }
 
-export default App
